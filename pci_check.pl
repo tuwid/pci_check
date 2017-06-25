@@ -208,7 +208,7 @@ foreach (@etc_passwd)
 print "NTP Servers:\n";
 foreach (@etc_ntp_conf)
   {
-    if (m/^(server.*)/)
+    if (m/^([server|pool].*)/)
       {
         print "\t$1\n";
       }
@@ -350,9 +350,6 @@ foreach ( sort( grep{ ! $seen{$_}++ } @ps_cmd))
   {
     print "\t$_";
   }
-
-
-
 
 #Argument filename, Returns array
 sub open_file

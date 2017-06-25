@@ -3,6 +3,13 @@
 ## About this repository
 This repository contains a perl script to check some basic security parameters (in case of quick audit reports) 
 
+## Installation
+
+	git clone git@github.com:tuwid/pci_check.git
+	cd pci_check
+	chmod +x ./pci_check.pl 
+or 
+	perl pci_check.pl
 ## Basic usage
 #### To use locally.
 	./pci_check.pl
@@ -28,10 +35,12 @@ This repository contains a perl script to check some basic security parameters (
 - check environment variables for proxy ?
 - check connectivity though proxy
 - connectivity check though UDP DNS request (for udp tunneling attacks) 
-- rsyslog check ?
-- ldap login check ?
-- add email ?
-- add html output ?
+- rsyslog check for remote forwarding
+- ldap login check (centralized login auth)
+- add email support for reports
 - add suggestions (debsecan run + grep cve filter for HIGH )
 - check if repo data ise updated
+- list all crons from all users
 - check if system has been updated in last 2 weeks
+- add html output 
+- find folders with 777 (?)
