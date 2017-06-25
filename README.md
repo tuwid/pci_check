@@ -9,7 +9,9 @@ This repository contains a perl script to check some basic security parameters (
 	# cd pci_check
 And we run by doing 
 	# chmod +x pci_check.pl ; ./pci_check.pl
-or 
+
+Or
+ 
 	# perl pci_check.pl
 
 ## Basic usage
