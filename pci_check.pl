@@ -289,7 +289,7 @@ if ($os_distro =~ m/red hat/i)
 print "Installed packages:\n";
 foreach (@installed_packages)
   {
-    if (m/(.*(ssh|ntp|httpd|apache|named|bind|avg|clam|portmap|sophos|sys|ssl|cups|sec|tripwire|php).*)/i)
+    if (m/(.*(ssh|ntp|httpd|apache|nginx|named|bind|avg|clam|portmap|sophos|sys|ssl|cups|sec|tripwire|php).*)/i)
     {
        print "\t$1\n";
     }
@@ -315,7 +315,7 @@ foreach (@login_defs)
 print "Pam.d config:\n";
 foreach (@pam_d_contents)
   {
-    if ((!(m/^#/) && ((m/(.*pam_unix.*)/i) || (m/(.*pam_tally.*)/i) || (m/(.*pam_crack.*)/i) || (m/(.*minlen.*)/i) || (m/(.*retry.*)/i)) ) )
+    if ((!(m/^#/) && ((m/(.*pam_unix.*)/i) || (m/(.*pam_tally.*)/i) ||(m/(.*pam_ldap.*)/i) || (m/(.*pam_crack.*)/i) || (m/(.*minlen.*)/i) || (m/(.*retry.*)/i)) ) )
       {
         print "\t$1\n";
       }
