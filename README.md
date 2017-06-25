@@ -5,24 +5,26 @@ This repository contains a perl script to check some basic security parameters (
 
 ## Installation
 
-	\# git clone git@github.com:tuwid/pci_check.git
-	\# cd pci_check
-	\# chmod +x ./pci_check.pl 
+	# git clone git@github.com:tuwid/pci_check.git
+	# cd pci_check
+And we run by doing 
+	# chmod +x pci_check.pl ; ./pci_check.pl
 or 
-	perl pci_check.pl
+	# perl pci_check.pl
+
 ## Basic usage
 #### To use locally.
-	\# ./pci_check.pl
+	./pci_check.pl
 #### Remotely redirect to ssh.
-	\# ssh username@servername perl < pci_check.pl
+	ssh username@servername perl < pci_check.pl
 #### Looping through multiple servers.
-	\# for server in servername1 servername2 servernameetc; do ssh username@$server perl < pci_check.pl; done
+	for server in servername1 servername2 servernameetc; do ssh username@$server perl < pci_check.pl; done
 #### Redirect output to local file.
-	\# ssh username@servername perl < pci_check.pl >> output.txt
+	ssh username@servername perl < pci_check.pl >> output.txt
 #### Redirecting output to a local file while looping through multiple servers.
-	\# for server in servername1 servername2 servernameetc; do ssh username@$server perl < pci_check.pl >> output.txt; done
+	for server in servername1 servername2 servernameetc; do ssh username@$server perl < pci_check.pl >> output.txt; done
 #### Looping through multiple servers specified from a list.
-	\# for server in \`cat serverlist.txt\` ; do ssh username@$server perl < pci_check.pl; done
+	for server in \`cat serverlist.txt\` ; do ssh username@$server perl < pci_check.pl; done
 
 ## List of current checks
 
