@@ -27,7 +27,7 @@ Or
 #### Redirecting output to a local file while looping through multiple servers.
 	for server in servername1 servername2 servernameetc; do ssh username@$server perl < pci_check.pl >> output.txt; done
 #### Looping through multiple servers specified from a list.
-	for server in \`cat serverlist.txt\` ; do ssh username@$server perl < pci_check.pl; done
+	for server in `cat serverlist.txt` ; do ssh username@$server perl < pci_check.pl; done
 
 ## List of current checks
 
