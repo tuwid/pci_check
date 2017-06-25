@@ -21,7 +21,7 @@
 #
 
 use strict;
-my $internet_connectivity_url = "http://www.google.com";
+my $internet_connectivity_url = "http://www.google.com/";
 
 my $which_cmd = "which";
 my $etc_passwd_file = "/etc/passwd";
@@ -36,6 +36,7 @@ my $etc_ssh_sshd_conf_file = "/etc/ssh/sshd_config";
 my $var_log_clamav_freshclam_log = "/var/log/clamav/freshclam.log";
 my $my_id = `id -u`;
 my $sysctl_cmd = "/sbin/sysctl";
+
 my $passwd_cmd = `$which_cmd passwd`;
   chomp $passwd_cmd;
 my $curl_cmd = `$which_cmd curl`;
@@ -83,6 +84,11 @@ my @log_directories =
   qw(
     /var/log
     /var/log/httpd
+    /var/log/audit
+    /var/log/nginx
+    /var/log/mysql
+    /var/log/apt
+    /var/log/apache2
     );
 
 my @login_defs = open_file($etc_login_defs_file);
@@ -183,7 +189,6 @@ foreach (@netstat)
   }
 
 
-
 #Sysctl Values
 print "IP sysctl:\n";
 foreach (@sysctl_oids)
@@ -249,6 +254,7 @@ if ($my_id == 0)
   }
 
 
+
 #Determine OS and find installed packages
 if ($os_distro =~ m/ubuntu/i)
   {
@@ -289,7 +295,7 @@ if ($os_distro =~ m/red hat/i)
 print "Installed packages:\n";
 foreach (@installed_packages)
   {
-    if (m/(.*(ssh|ntp|httpd|apache|nginx|named|bind|avg|clam|portmap|sophos|sys|ssl|cups|sec|tripwire|php).*)/i)
+    if (m/(.*(ssh|ntp|httpd|apache|telnet|rlog|x11|ssh|samba|automake|gcc|cpp|certificates|java|mysql|maria|linux|language-pack|nginx|named|bind|avg|clam|portmap|sophos|sys|ssl|cups|sec|tripwire|php).*)/i)
     {
        print "\t$1\n";
     }
@@ -378,3 +384,19 @@ sub read_sysctl
     close SYSCTL;
     return $output;
   }
+
+#Read relevant environment variables
+sub read_env
+  {
+    # PATH
+    # USER
+    # JAVA_HOME
+  }
+
+#Read logrotate
+sub read_logrotate
+  {
+
+  }
+
+#Read IPTABLES config 

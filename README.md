@@ -36,7 +36,7 @@ Or
 
 ## Possible Todos
 
-- add more relevant filters
+- add more relevant filters ( need to narrow this down )
 - check environment variables for proxy ?
 - check connectivity though proxy
 - connectivity check though UDP DNS request (for udp tunneling attacks) 
